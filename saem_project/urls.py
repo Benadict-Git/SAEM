@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include  # ✅ Include app URLs
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,5 +24,6 @@ urlpatterns = [
     path('monitoring/', include('monitoring.urls')),  # ✅ Soil health monitoring
     path('weather/', include('weather.urls')),  # ✅ Weather forecasting
     path('disease/', include('disease_detection.urls')),  # ✅ Crop disease detection
-    path('finance/', include('finance.urls')),  # ✅ Financial tracking
+    path('finance/', include('finance.urls')),
+    path('', views.home, name='home'),  # ✅ Financial tracking
 ]
